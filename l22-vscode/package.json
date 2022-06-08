@@ -1,6 +1,6 @@
 {
   "name": "l22-vscode",
-  "displayName": "L22-VSCode",
+  "displayName": "l22-vscode",
   "description": "",
   "version": "0.0.1",
   "engines": {
@@ -10,22 +10,10 @@
     "Other"
   ],
   "activationEvents": [
-    "onLanguage:l22",
-		"onCommand:l22-vscode.helloWorld"
+    "onCommand:l22-vscode.helloWorld"
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "languages": [
-      {
-        "id": "L22",
-        "aliases": [
-          "l22"
-        ],
-        "extensions": [
-          ".l22"
-        ]
-      }
-    ],
     "commands": [
       {
         "command": "l22-vscode.helloWorld",
@@ -39,7 +27,7 @@
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src --ext ts",
-    "test": "echo 'No tests for you :^)'"
+    "test": "node ./out/test/runTest.js"
   },
   "devDependencies": {
     "@types/glob": "^7.2.0",

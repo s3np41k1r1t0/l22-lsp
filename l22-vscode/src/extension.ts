@@ -1,11 +1,16 @@
 import * as vscode from 'vscode';
-import { extensionInstance } from './core/l22client';
+import { Client } from './core/client';
 
 export function activate(context: vscode.ExtensionContext) {
-	extensionInstance.setContext(context);
-	extensionInstance.init().catch((error)=> {
-		console.log(`Extension activation failed: ${error}`);
+	Client.inititalize(context);
+
+	let disposable = vscode.commands.registerCommand('l22-vscode.helloWorld', () => {
+		vscode.window.showInformationMessage('Extension initialized :D');
 	});
+
+	context.subscriptions.push(disposable);
 }
 
-export function deactivate() {}
+export function deactivate() {
+	Client.shutdown();
+}
