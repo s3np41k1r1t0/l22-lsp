@@ -4,7 +4,7 @@ import { Client } from './core/client';
 export function activate(context: vscode.ExtensionContext) {
 	Client.inititalize(context);
 
-	let disposable = vscode.commands.registerCommand('l22-vscode.helloWorld', () => {
+	let disposable = vscode.commands.registerCommand('l22-vscode.start', () => {
 		vscode.window.showInformationMessage('Extension initialized :D');
 	});
 

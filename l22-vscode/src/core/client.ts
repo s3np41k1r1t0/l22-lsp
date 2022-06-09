@@ -34,7 +34,7 @@ export class Client {
     // Options to control the language client
     const clientOptions: LanguageClientOptions = {
       // Register the server for plain text documents
-      documentSelector: [{ scheme: 'file', language: 'plaintext' }],
+      documentSelector: [{ scheme: 'file', language: 'l22' }],
       outputChannel,
       revealOutputChannelOn: RevealOutputChannelOn.Never
     };

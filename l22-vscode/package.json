@@ -10,16 +10,47 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:l22-vscode.helloWorld"
+    "onLanguage:l22",
+    "onCommand:l22-vscode.start"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "l22-vscode.helloWorld",
-        "title": "Hello World"
+        "command": "l22-vscode.start",
+        "title": "L22 Start"
       }
-    ]
+    ],
+    "languages": [
+      {
+        "id": "l22",
+        "aliases": [ "L22" ],
+        "extensions": [
+          ".l22"
+        ]
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Example configuration",
+      "properties": {
+        "l22LanguageServer.maxNumberOfProblems": {
+          "type": "number",
+          "default": 100,
+          "description": "Controls the maximum number of problems produced by the server."
+        },
+        "l22LanguageServer.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "verbose",
+          "description": "Traces the communication between VSCode and the languageServerExample service."
+        }        
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
